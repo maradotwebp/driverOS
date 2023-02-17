@@ -20,7 +20,7 @@
         skipjack = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = commonModules ++ [
-            ./hosts/skipjack
+            ./os/skipjack
             ./home/skipjack
           ];
         };
