@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    ./colors.nix
     ./intl.nix
     ./network.nix
     ./nix.nix
