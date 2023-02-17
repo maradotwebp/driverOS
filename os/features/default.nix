@@ -7,6 +7,7 @@
     ./network.nix
     ./nix.nix
     ./users.nix
+    ./wayland.nix
     ./xserver.nix
   ];
 }
