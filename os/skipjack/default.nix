@@ -4,8 +4,8 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../common
-    ../common/optional/uefi.nix
+    ../features
+    ../features/optional/uefi.nix
   ];
 
   networking.hostName = "skipjack";
