@@ -14,16 +14,12 @@
       forEachSystem = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
       forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
       mkHmConfig = import ./lib/mkHmConfig.nix;
-      commonModules = [ home-manager.nixosModules.home-manager ];
     in {
       nixosConfigurations = {
         # SKIPJACK (Laptop)
         skipjack = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = commonModules ++ [
-            ./os/skipjack
-            (mkHmConfig ./home/skipjack)
-          ];
+          modules = [ ./os/skipjack (mkHmConfig ./home/skipjack) ];
         };
       };
     };
