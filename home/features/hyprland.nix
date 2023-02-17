@@ -1,14 +1,17 @@
-{ inputs, ... }:
+{ pkgs, config, inputs, ... }:
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
     ./alacritty.nix
+    ../../modules/home/wallpaper.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.hidpi = false;
     extraConfig = ''
+      exec-once = ${pkgs.swaybg}/bin/swaybg -i "${config.wallpaper}" -m fill
+
       monitor = , preferred, auto, 1
       input {
         kb_layout = de
