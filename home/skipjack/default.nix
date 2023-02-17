@@ -1,8 +1,12 @@
-{ pkgs, lib, hyprland, ... }:
+{ pkgs, inputs, ... }:
 {
+  # HOME MANAGER
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
   home-manager.users.alex = {
     imports = [
-      hyprland.homeManagerModules.default
+      inputs.hyprland.homeManagerModules.default
     ];
 
     services.syncthing.enable = true;

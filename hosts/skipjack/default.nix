@@ -1,12 +1,16 @@
-{ config, pkgs, hostName, ... }:
+
+{ pkgs, inputs, ... }:
 {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # BOOT
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # NETWORK
-  networking.hostName = hostName;
+  networking.hostName = "skipjack";
   networking.networkmanager.enable = true;
 
   # INTL
@@ -24,10 +28,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
-
-  # HOME MANAGER
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
 
   # NIX
   system.stateVersion = "23.05"; # LEAVE THIS ALONE (see https://nixos.org/nixos/options.html).
