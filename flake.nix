@@ -60,6 +60,7 @@
 	              animation = windowsIn, 1, 2, default, popin 80%
 	              animation = windowsOut, 1, 2, default, popin 80%
 	              animation = fade, 1, 1, default
+	              animation = workspaces, 1, 4, default, slidevert
 	           	}
 	           	dwindle {
 	           	  force_split = 2
