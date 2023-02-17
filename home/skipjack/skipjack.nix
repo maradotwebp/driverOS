@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./hyprland.nix
+    ../common/hyprland.nix
   ];
 
   home.stateVersion = "23.05";
