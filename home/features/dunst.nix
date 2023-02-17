@@ -1,6 +1,9 @@
 { colors, pkgs, ... }:
 {
-  # DUNST
+  imports = [
+    ./fonts.nix
+  ];
+
   services.dunst.enable = true;
   services.dunst.iconTheme = {
     name = "Arc";
@@ -17,7 +20,7 @@
       horizontal_padding = 16;
       frame_width = 0;
       idle_threshold = 120;
-      font = "Monospace 10";
+      font = "JetBrainsMono Nerd Font 10";
       markup = true;
       format = "<b>%s</b> %p\\n%b";
       vertical_alignment = "top";
