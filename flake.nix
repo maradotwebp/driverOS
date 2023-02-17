@@ -1,4 +1,3 @@
-
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -12,7 +11,7 @@
       system = "x64_64_linux";
       modules = [
         ./configuration.nix
-        /etc/nixos/hardware-configuration.nix
+        ./hosts/skipjack/hardware-configuration.nix
         home-manager.nixosModules.home-manager
         ({ pkgs, lib, ... }: 
         let mod = "Mod1";
@@ -29,7 +28,7 @@
             services.syncthing.enable = true;
           
             home.stateVersion = "23.05";
-            programs.kitty.enable = true;
+            programs.alacritty.enable = true;
             home.packages = [
               pkgs.micro
               pkgs.jetbrains.idea-ultimate
@@ -67,7 +66,7 @@
 	           	}
 	           	$mainMod = ALT
 	           	
-	           	bind = $mainMod, Return, exec, kitty
+	           	bind = $mainMod, Return, exec, alacritty
 	           	bind = $mainMod SHIFT, Q, killactive
 
 	  			bind = $mainMod, left, movefocus, l
