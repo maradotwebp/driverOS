@@ -6,11 +6,15 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland }: {
+  outputs = { self, nixpkgs, home-manager, hyprland }@attrs: {
     nixosConfigurations.skipjack = nixpkgs.lib.nixosSystem {
       system = "x64_64_linux";
+      specialArgs = {
+        hostName = "skipjack";
+        inherit attrs;
+      };
       modules = [
-        ./configuration.nix
+        ./os/configuration.nix
         ./hosts/skipjack/hardware-configuration.nix
         home-manager.nixosModules.home-manager
         ({ pkgs, lib, ... }: 
