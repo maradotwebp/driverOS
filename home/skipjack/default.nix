@@ -1,7 +1,18 @@
-{ inputs, outputs, ... }:
+{ pkgs, ... }:
 {
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.alex = import ./skipjack.nix;
-  home-manager.extraSpecialArgs = { inherit inputs outputs; };
+  imports = [
+    ../common/hyprland.nix
+  ];
+
+  home.stateVersion = "23.05";
+
+  services.syncthing.enable = true;
+  programs.alacritty.enable = true;
+  home.packages = with pkgs; [
+    micro
+    jetbrains.idea-ultimate
+    firefox
+  ];
+
+  home.keyboard.layout = "de";
 }

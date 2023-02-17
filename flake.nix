@@ -13,6 +13,7 @@
       inherit (self) outputs;
       forEachSystem = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
       forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
+      mkHmConfig = import ./lib/mkHmConfig.nix;
       commonModules = [ home-manager.nixosModules.home-manager ];
     in {
       nixosConfigurations = {
@@ -21,7 +22,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = commonModules ++ [
             ./os/skipjack
-            ./home/skipjack
+            (mkHmConfig ./home/skipjack)
           ];
         };
       };
