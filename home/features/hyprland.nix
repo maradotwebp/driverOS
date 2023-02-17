@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
+    ./alacritty.nix
   ];
 
   wayland.windowManager.hyprland = {

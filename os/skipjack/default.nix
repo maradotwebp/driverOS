@@ -9,5 +9,5 @@
   ];
 
   networking.hostName = "skipjack";
-  system.stateVersion = "23.05"; # LEAVE THIS ALONE (see https://nixos.org/nixos/options.html).
+  system.stateVersion = "23.05"; # LEAVE THIS ALONE (see https://nixos.org/nixos/options.html)
 }

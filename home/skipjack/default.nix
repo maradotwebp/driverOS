@@ -1,18 +1,14 @@
 { pkgs, ... }:
 {
   imports = [
-    ../features/hyprland.nix
+    ../features
   ];
 
-  home.stateVersion = "23.05";
-
-  services.syncthing.enable = true;
-  programs.alacritty.enable = true;
   home.packages = with pkgs; [
     micro
     jetbrains.idea-ultimate
     firefox
   ];
 
-  home.keyboard.layout = "de";
+  home.stateVersion = "23.05";  # LEAVE THIS ALONE (see https://nixos.org/nixos/options.html)
 }
