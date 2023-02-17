@@ -1,9 +1,5 @@
-{ pkgs, lib, home-manager, hyprland, ... }:
+{ pkgs, lib, hyprland, ... }:
 {
-  nixpkgs.config.allowUnfree = true;
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
   home-manager.users.alex = {
     imports = [
       hyprland.homeManagerModules.default

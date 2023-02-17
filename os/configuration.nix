@@ -1,5 +1,6 @@
 { config, pkgs, hostName, ... }:
 {
+
   # BOOT
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -24,7 +25,12 @@
     extraGroups = [ "wheel" ];
   };
 
+  # HOME MANAGER
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
   # NIX
   system.stateVersion = "23.05"; # LEAVE THIS ALONE (see https://nixos.org/nixos/options.html).
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 }

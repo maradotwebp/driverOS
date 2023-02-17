@@ -15,10 +15,10 @@
         hyprland = hyprland;
       };
       modules = [
-        home-manager.nixosModules.home-manager
-        ./os/configuration.nix
-        ./home/home.nix
         ./hosts/skipjack/hardware-configuration.nix
+        ./os/configuration.nix
+        home-manager.nixosModules.home-manager
+        ./home/configuration.nix
       ];
     };
   };
