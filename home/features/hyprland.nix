@@ -3,6 +3,7 @@
   imports = [
     inputs.hyprland.homeManagerModules.default
     ./alacritty.nix
+    ./eww.nix
     ./rofi.nix
     ../../modules/home/wallpaper.nix
   ];
@@ -12,8 +13,10 @@
     xwayland.hidpi = false;
     extraConfig = ''
       exec-once = ${pkgs.swaybg}/bin/swaybg -i "${config.wallpaper}" -m fill
+      exec-once = eww open main
 
       monitor = , preferred, auto, 1
+      monitor = , addreserved, 0, 0, 42, 0
       input {
         kb_layout = de
       }
@@ -65,7 +68,6 @@
       bind = $mainMod, 7, workspace, 7
       bind = $mainMod, 8, workspace, 8
       bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 0
 
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
       bind = $mainMod SHIFT, 2, movetoworkspace, 2
@@ -76,7 +78,6 @@
       bind = $mainMod SHIFT, 7, movetoworkspace, 7
       bind = $mainMod SHIFT, 8, movetoworkspace, 8
       bind = $mainMod SHIFT, 9, movetoworkspace, 9
-      bind = $mainMod SHIFT, 0, movetoworkspace, 0
 
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
