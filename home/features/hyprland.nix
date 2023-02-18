@@ -3,6 +3,7 @@
   imports = [
     inputs.hyprland.homeManagerModules.default
     ./alacritty.nix
+    ./rofi.nix
     ../../modules/home/wallpaper.nix
   ];
 
@@ -19,12 +20,12 @@
       general {
         gaps_in = 5
         gaps_out = 10
-        border_size = 2
-        col.active_border = rgba(bfbfbfaa) rgba(bfbfbfaa) rgba(6c6c6caa) 45deg
-        col.inactive_border = rgba(6c6c6c00)
+        border_size = 1
+        col.active_border = rgba(aeaeaecc)
+        col.inactive_border = rgba(000000ff)
       }
       decoration {
-        rounding = 2
+        rounding = 3
       }
       animations {
         animation = windows, 1, 1, default
@@ -38,7 +39,9 @@
       }
       $mainMod = ALT
 
-      bind = $mainMod, Return, exec, alacritty
+      bind = $mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty
+      bind = $mainMod, D, exec, rofi -show drun -show-icons -display-drun "::"
+
       bind = $mainMod SHIFT, Q, killactive
 
       bind = $mainMod, left, movefocus, l
