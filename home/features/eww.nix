@@ -1,4 +1,4 @@
-{ pkgs, colors, ... }:
+{ pkgs, osConfig, ... }:
 {
   home.packages = with pkgs; [
     eww-wayland
@@ -53,7 +53,7 @@
           :spacing 10
           :space-evenly false
           :valign valign
-          :halign "center"
+          :halign "fill"
           :orientation "vertical"
           (children)
         )
@@ -86,27 +86,27 @@
       )
     '';
 
-    "eww/eww.scss".text = ''
+    "eww/eww.scss".text = with osConfig.theme.colors; ''
       * {
         background-color: inherit;
       }
       window {
-        background-color: #ffffff;
+        background-color: ${zinc."50".hex};
       }
       .window {
-        padding: 6px 0px;
+        padding: 12px 6px;
       }
       .workspace {
         font: 18px "JetBrainsMono Nerd Font";
-        color: #8c8c8c;
+        color: ${zinc."400".hex};
       }
       .workspace.current {
-        color: ${colors.withHashtag.blue};
+        color: ${zinc."800".hex};
       }
       .card {
-        color: #000000;
+        color: ${zinc."900".hex};
+        background-color: ${zinc."200".hex};
         font: 12px "JetBrainsMono Nerd Font";
-        background-color: #cecece;
         border-radius: 3px;
         padding: 4px;
       }
