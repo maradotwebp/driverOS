@@ -4,6 +4,7 @@
     inputs.hyprland.homeManagerModules.default
     ./alacritty.nix
     ./eww.nix
+    ./osd.nix
     ./rofi.nix
     ../../modules/home/wallpaper.nix
   ];
@@ -14,6 +15,7 @@
     extraConfig = with osConfig.theme.colors; ''
       exec-once = ${pkgs.swaybg}/bin/swaybg -i "${config.wallpaper}" -m fill
       exec-once = eww open main
+      exec-once = ${pkgs.avizo}/bin/avizo-service
 
       monitor = , preferred, auto, 1
       monitor = , addreserved, 0, 0, 42, 0
@@ -44,6 +46,13 @@
 
       bind = $mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty
       bind = $mainMod, D, exec, rofi -show drun -show-icons -display-drun ""
+
+      bind = , XF86AudioRaiseVolume, exec, volumectl -u up
+      bind = , XF86AudioLowerVolume, exec, volumectl -u down
+      bind = , XF86AudioMute, exec, volumectl toggle-mute
+      bind = , XF86AudioMicMute, exec, volumectl -m toggle-mute
+      bind = , XF86MonBrightnessUp, exec, lightctl up
+      bind = , XF86MonBrightnessDown, exec, lightctl down
 
       bind = $mainMod SHIFT, Q, killactive
 
