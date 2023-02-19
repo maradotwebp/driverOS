@@ -38,13 +38,11 @@
         padding = mkLiteral "4px 8px";
         background-color = mkLiteral colors.withHashtag.base01;
       };
+      "prompt" = {
+        padding = mkLiteral "4px";
+      };
       "entry, element-icon, element-text" = {
         vertical-align = mkLiteral "0.5";
-      };
-      "icon-search" = {
-        expand = false;
-        filename = "search-symbolic";
-        size = mkLiteral "14px";
       };
       "textbox" = {
         padding = mkLiteral "4px 8px";

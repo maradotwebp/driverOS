@@ -43,7 +43,7 @@
       $mainMod = ALT
 
       bind = $mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty
-      bind = $mainMod, D, exec, rofi -show drun -show-icons -display-drun "::"
+      bind = $mainMod, D, exec, rofi -show drun -show-icons -display-drun ""
 
       bind = $mainMod SHIFT, Q, killactive
 
