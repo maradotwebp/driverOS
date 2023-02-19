@@ -1,5 +1,9 @@
-{ colors, inputs, ... }:
+{ pkgs, colors, inputs, ... }:
 {
+  imports = [
+    ./nushell.nix
+  ];
+
   programs.alacritty.enable = true;
 
   programs.alacritty.settings = {
@@ -10,6 +14,7 @@
     font = {
       normal.family = "JetBrainsMono Nerd Font";
     };
+    shell.program = "${pkgs.nushell}/bin/nu";
   };
 
   programs.alacritty.settings.colors = with colors.withHashtag;
