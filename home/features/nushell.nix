@@ -1,8 +1,5 @@
 {
   programs.nushell.enable = true;
-  programs.nushell.configFile.text = ''
-    let-env config = {
-      table_mode: thin
-    }
-  '';
+  programs.nushell.configFile.source = ../configs/nushell/config.nu;
+  programs.nushell.envFile.source = ../configs/nushell/env.nu;
 }
