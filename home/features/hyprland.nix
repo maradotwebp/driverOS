@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, osConfig, inputs, ... }:
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
@@ -11,7 +11,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.hidpi = false;
-    extraConfig = ''
+    extraConfig = with osConfig.theme.colors; ''
       exec-once = ${pkgs.swaybg}/bin/swaybg -i "${config.wallpaper}" -m fill
       exec-once = eww open main
 
@@ -24,8 +24,8 @@
         gaps_in = 5
         gaps_out = 10
         border_size = 1
-        col.active_border = rgba(aeaeaecc)
-        col.inactive_border = rgba(000000ff)
+        col.active_border = rgba(${zinc."100".hexNoHash}cc) rgba(${zinc."200".hexNoHash}cc)
+        col.inactive_border = rgba(${zinc."900".hexNoHash}cc)
       }
       decoration {
         rounding = 3

@@ -6,10 +6,11 @@ let
 
     Example:
       toColorTypeSet "#f8fafc"
-      => { "hex" = "#f8fafc"; }
+      => { "hex" = "#f8fafc"; hexNoHash = "f8fafc"; }
   */
   toColorTypeSet = color: {
     hex = color;
+    hexNoHash = lib.strings.removePrefix "#" color;
   };
 
 
