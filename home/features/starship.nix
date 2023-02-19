@@ -8,13 +8,15 @@
       "$character"
       "$username"
       "$directory"
+    ];
+    right_format = lib.concatStrings [
       "$nix_shell"
       "$git_branch"
       "$git_state"
       "$git_status"
     ];
     character = {
-      success_symbol = "󱖳";
+      success_symbol = "[󱖳](white)";
       error_symbol = "[󱖳](bold red)";
     };
     nix_shell = {
