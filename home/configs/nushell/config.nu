@@ -309,7 +309,7 @@ let-env config = {
     abbreviations: false # allows `cd s/o/f` to expand to `cd some/other/folder`
   }
   table: {
-    mode: thin # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
+    mode: light # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
     index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
     trim: {
       methodology: wrapping # wrapping or truncating

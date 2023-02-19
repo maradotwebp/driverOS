@@ -7,6 +7,7 @@
     ./hyprland.nix
     ./nushell.nix
     ./rofi.nix
+    ./starship.nix
     ./syncthing.nix
   ];
 }
