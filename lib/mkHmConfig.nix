@@ -7,5 +7,6 @@ file:
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
     colors = config.scheme;
+    osConfig = config;
   };
 }

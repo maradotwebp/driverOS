@@ -1,11 +1,10 @@
-{ pkgs, colors, inputs, ... }:
+{ pkgs, osConfig, ... }:
 {
   imports = [
     ./nushell.nix
   ];
 
   programs.alacritty.enable = true;
-
   programs.alacritty.settings = {
     window = {
       padding = { x = 4; y = 4; };
@@ -17,17 +16,27 @@
     shell.program = "${pkgs.nushell}/bin/nu";
   };
 
-  programs.alacritty.settings.colors = with colors.withHashtag;
+  programs.alacritty.settings.colors = with osConfig.theme.colors;
     let
-      default = {
-        black = base00; white = base07;
-        inherit red green yellow blue cyan magenta;
+      bg = zinc."800".hex;
+      fg = zinc."100".hex;
+      themeAt = index: {
+        black = bg;
+        white = fg;
+        red = red."${index}".hex;
+        green = green."${index}".hex;
+        yellow = yellow."${index}".hex;
+        blue = blue."${index}".hex;
+        cyan = cyan."${index}".hex;
+        magenta = violet."${index}".hex;
       };
     in {
-      primary = { background = base00; foreground = base07; };
-      cursor = { text = base02; cursor = base07; };
-      normal = default; bright = default; dim = default;
-      search.matches = { background = base07; foreground = base00; };
-      search.focused_match = { background = magenta; foreground = base07; };
+      primary = { background = bg; foreground = fg; };
+      cursor = { text = zinc."700".hex; cursor = fg; };
+      normal = themeAt "400";
+      bright = themeAt "300";
+      dim = themeAt "500";
+      search.matches = { background = zinc."400".hex; foreground = bg; };
+      search.focused_match = { background = zinc."200".hex; foreground = bg; };
     };
 }
