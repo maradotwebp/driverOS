@@ -1,4 +1,4 @@
-{ colors, pkgs, ... }:
+{ osConfig, pkgs, ... }:
 {
   imports = [
     ./fonts.nix
@@ -10,21 +10,21 @@
     package = pkgs.arc-icon-theme;
     size = "32x32";
   };
-  services.dunst.settings = {
+  services.dunst.settings = with osConfig.theme.colors; {
     global = {
       follow = "mouse";
       width = 400;
       notification_limit = 1;
-      offset = "5x5";
+      offset = "3x3";
       padding = 16;
       horizontal_padding = 16;
-      frame_width = 0;
+      frame_width = 1;
       idle_threshold = 120;
       font = "JetBrainsMono Nerd Font 10";
       markup = true;
       format = "<b>%s</b> %p\\n%b";
       vertical_alignment = "top";
-      corner_radius = 2;
+      corner_radius = 3;
       word_wrap = true;
       icon_position = "left";
       mouse_middle_click = "close_all";
@@ -35,20 +35,23 @@
     };
 
     urgency_low = {
-      background = colors.withHashtag.blue;
-      foreground = colors.withHashtag.base07;
+      background = slate."700".hex;
+      foreground = slate."50".hex;
+      frame_color = slate."800".hex;
       timeout = 10;
     };
 
     urgency_normal = {
-      background = colors.withHashtag.base01;
-      foreground = colors.withHashtag.base07;
+      background = zinc."700".hex;
+      foreground = zinc."50".hex;
+      frame_color = zinc."800".hex;
       timeout = 10;
     };
 
     urgency_critical = {
-      background = colors.withHashtag.red;
-      foreground = colors.withHashtag.base07;
+      background = red."500".hex;
+      foreground = red."900".hex;
+      frame_color = red."600".hex;
       timeout = 0;
     };
   };
