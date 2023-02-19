@@ -7,7 +7,7 @@
 
   programs.rofi.enable = true;
   programs.rofi.package = pkgs.rofi-wayland;
-  programs.rofi.font = "JetBrainsMono Nerd Font 12";
+  programs.rofi.font = "JetBrainsMono Nerd Font 11";
   programs.rofi.location = "left";
   programs.rofi.terminal = "${pkgs.alacritty}/bin/alacritty";
   programs.rofi.theme = with osConfig.theme.colors;
