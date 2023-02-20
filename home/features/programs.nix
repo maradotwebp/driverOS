@@ -32,4 +32,11 @@
   programs.nushell.extraConfig = ''
     alias cat = bat
   '';
+
+  # Nix direnv
+  programs.direnv = {
+    enable = true;
+    enableNushellIntegration = true;
+    nix-direnv.enable = true;
+  };
 }
