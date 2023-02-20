@@ -4,6 +4,7 @@
     ./dunst.nix
     ./eww.nix
     ./fonts.nix
+    ./git.nix
     ./hyprland.nix
     ./nushell.nix
     ./osd.nix
