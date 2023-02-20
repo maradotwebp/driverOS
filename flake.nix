@@ -6,12 +6,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
-    base16.url = github:SenchoPens/base16.nix;
-    base16.inputs.nixpkgs.follows = "nixpkgs";
-    base16-schemes = {
-      url = github:base16-project/base16-schemes;
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

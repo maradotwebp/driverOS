@@ -1,41 +1,5 @@
 {
   "nodes": {
-    "base16": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1658847131,
-        "narHash": "sha256-X6Mml7cT0YR3WCD5fkUhpRVV5ZPcwdcDsND8r8xMqTE=",
-        "owner": "SenchoPens",
-        "repo": "base16.nix",
-        "rev": "6b404cda2e04ca3cf5ca7b877af9c469e1386acb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SenchoPens",
-        "repo": "base16.nix",
-        "type": "github"
-      }
-    },
-    "base16-schemes": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1671208311,
-        "narHash": "sha256-U9pfie3qABp5sTr3M9ga/jX8C807FeiXlmEZnC4ZM58=",
-        "owner": "base16-project",
-        "repo": "base16-schemes",
-        "rev": "cf6bc892a24af19e11383adedc6ce7901f133ea7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "base16-project",
-        "repo": "base16-schemes",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -133,8 +97,6 @@
     },
     "root": {
       "inputs": {
-        "base16": "base16",
-        "base16-schemes": "base16-schemes",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_2"

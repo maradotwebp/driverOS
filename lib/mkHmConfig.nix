@@ -6,7 +6,6 @@ file:
   home-manager.users.alex = import file;
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
-    colors = config.scheme;
     osConfig = config;
   };
 }
