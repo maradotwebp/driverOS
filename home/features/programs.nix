@@ -20,4 +20,16 @@
     discord
     slack
   ];
+
+  # Better cat
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "ansi";
+      pager = "never";
+    };
+  };
+  programs.nushell.extraConfig = ''
+    alias cat = bat
+  '';
 }
