@@ -7,6 +7,7 @@
 
     ../features
     ../features/optional/uefi.nix
+    ../features/optional/vpn.nix
   ];
 
   networking.hostName = "skipjack";
