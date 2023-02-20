@@ -1,26 +1,33 @@
-{ lib, ... }:
+{ lib, osConfig, ... }:
 {
   programs.starship.enable = true;
   programs.starship.enableNushellIntegration = true;
-  programs.starship.settings = {
+  programs.starship.settings = with osConfig.theme.colors; {
     add_newline = false;
     format = lib.concatStrings [
-      "$character"
-      "$username"
       "$directory"
+      "$character"
     ];
     right_format = lib.concatStrings [
       "$nix_shell"
       "$git_branch"
-      "$git_state"
-      "$git_status"
     ];
+    directory = {
+      format = "[]($style)[ ](bg:${zinc."600".hex} fg:#ECD3A0)[$path](bg:${zinc."600".hex} fg:${zinc."200".hex})[ ]($style)";
+      style = "bg:none fg:${zinc."600".hex}";
+    };
     character = {
-      success_symbol = "[󱖳](white)";
-      error_symbol = "[󱖳](bold red)";
+      success_symbol = "[](green)";
+      error_symbol = "[󱖳](red)";
+    };
+    git_branch = {
+      format = "[]($style)[[󰘬](bg:${zinc."600".hex} fg:${zinc."400".hex}) $branch](bg:${zinc."600".hex} fg:${zinc."200".hex})[ ]($style)";
+      style = "bg:none fg:${zinc."600".hex}";
+      truncation_length = 10;
     };
     nix_shell = {
-      format = "via [❄️](bold blue) ";
+      format = "[]($style)[❄️](bg:${zinc."600".hex} fg:${cyan."300".hex})[ ]($style)";
+      style = "bg:none fg:${zinc."600".hex}";
     };
   };
 }
