@@ -6,11 +6,9 @@
     add_newline = false;
     format = lib.concatStrings [
       "$directory"
-      "$character"
-    ];
-    right_format = lib.concatStrings [
-      "$nix_shell"
       "$git_branch"
+      "$nix_shell"
+      "$character"
     ];
     directory = {
       format = "[]($style)[ ](bg:${zinc."600".hex} fg:#ECD3A0)[$path](bg:${zinc."600".hex} fg:${zinc."200".hex})[ ]($style)";
