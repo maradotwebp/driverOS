@@ -8,6 +8,7 @@
     ./intl.nix
     ./network.nix
     ./nix.nix
+    ./ssh.nix
     ./users.nix
     ./wayland.nix
     ./xserver.nix
