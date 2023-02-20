@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     qbittorrent
     steam
+    filezilla
   ];
 
   home.stateVersion = "23.05";  # LEAVE THIS ALONE (see https://nixos.org/nixos/options.html)

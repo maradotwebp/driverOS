@@ -7,10 +7,10 @@
     micro
     jetbrains.idea-ultimate
     flameshot
-    peek
     obsidian
 
     # Files
+    feh
     libreoffice
     zathura
     xfce.thunar
