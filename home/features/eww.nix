@@ -15,6 +15,7 @@
       (defpoll day :interval "1m" `date +%d`)
       (defpoll month :interval "1m" `date +%m`)
       (defpoll year :interval "1m" `date +%y`)
+      (deflisten volume :initial "100%" `${pkgs.pulseaudio}/bin/pactl subscribe | grep --line-buffered "sink" | xargs -n1 ${pkgs.pamixer}/bin/pamixer --get-volume-human`)
 
       (defwidget workspaces []
         (box :orientation "vertical"
@@ -34,10 +35,18 @@
           (label :text "''${sec}")
         )
       )
+      (defwidget volume []
+        (eventbox :onscroll "volumectl -u {}" :onclick "volumectl toggle-mute"
+          (box :orientation "vertical" :class "card" :spacing 4
+            (label :text "󰋋")
+            (label :text "''${volume == "muted" ? "󰝟" : volume == "100%" ? "!!!" : volume}")
+          )
+        )
+      )
       (defwidget battery []
         (box :orientation "vertical" :class "card" :spacing 4
           (label :text "󰁹")
-          (label :text "''${EWW_BATTERY["BAT0"]["capacity"]}%")
+          (label :visible {EWW_BATTERY["BAT0"]["capacity"] != 100} :text "''${EWW_BATTERY["BAT0"]["capacity"]}%")
         )
       )
       (defwidget date []
@@ -79,6 +88,7 @@
             (time)
           )
           (aligned-box :valign "end"
+            (volume)
             (battery)
             (date)
           )
