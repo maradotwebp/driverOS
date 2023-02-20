@@ -16,7 +16,7 @@
     };
     character = {
       success_symbol = "[](green)";
-      error_symbol = "[󱖳](red)";
+      error_symbol = "[](red)";
     };
     git_branch = {
       format = "[]($style)[[󰘬](bg:${zinc."600".hex} fg:${zinc."400".hex}) $branch](bg:${zinc."600".hex} fg:${zinc."200".hex})[ ]($style)";
