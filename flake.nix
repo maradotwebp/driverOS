@@ -16,6 +16,8 @@
       forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
       mkHmConfig = import ./lib/mkHmConfig.nix;
     in {
+      overlays = import ./overlays { inherit inputs outputs; };
+
       nixosConfigurations = {
         # SKIPJACK (Laptop)
         skipjack = nixpkgs.lib.nixosSystem {
