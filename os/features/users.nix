@@ -2,7 +2,7 @@
 {
   users.users.alex = {
     isNormalUser = true;
-    shell = "${pkgs.nushell}/bin/nu";
+    shell = pkgs.nushell;
     extraGroups = [ "wheel" ];
   };
 }
