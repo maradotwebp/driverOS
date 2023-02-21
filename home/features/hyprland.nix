@@ -12,10 +12,10 @@ with builtins;
   ];
 
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${(builtins.elemAt config.wallpapers 0).path}
+    preload = ${config.wallpaper}
     ${concatStringsSep "\n" (map
       (m: ''
-        wallpaper = ${m.name},${(builtins.elemAt config.wallpapers 0).path}
+        wallpaper = ${m.name},${config.wallpaper}
       '')
     config.monitors)}
   '';
