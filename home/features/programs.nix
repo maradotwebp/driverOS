@@ -18,6 +18,9 @@
     # Communication
     discord
     slack
+
+    # Others
+    pfetch
   ];
 
   # Better cat
