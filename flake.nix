@@ -1,5 +1,5 @@
 {
-  description = "xOS";
+  description = "driverOS";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
