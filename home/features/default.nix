@@ -6,6 +6,7 @@
     ./fonts.nix
     ./git.nix
     ./hyprland.nix
+    ./nixsearch.nix
     ./nushell.nix
     ./osd.nix
     ./programs.nix
