@@ -1,4 +1,5 @@
 { pkgs, config, osConfig, inputs, ... }:
+with builtins;
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
@@ -7,15 +8,16 @@
     ./osd.nix
     ./rofi.nix
     ../../modules/home/wallpaper.nix
-  ];
-
-  home.packages = with pkgs; [
-    hyprpaper
+    ../../modules/home/monitors.nix
   ];
 
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     preload = ${(builtins.elemAt config.wallpapers 0).path}
-    wallpaper = eDP-1,${(builtins.elemAt config.wallpapers 0).path}
+    ${concatStringsSep "\n" (map
+      (m: ''
+        wallpaper = ${m.name},${(builtins.elemAt config.wallpapers 0).path}
+      '')
+    config.monitors)}
   '';
 
   wayland.windowManager.hyprland = {
@@ -26,8 +28,13 @@
       exec-once = eww open main
       exec-once = ${pkgs.avizo}/bin/avizo-service
 
-      monitor = , preferred, auto, 1
-      monitor = , addreserved, 0, 0, 42, 0
+      ${concatStringsSep "\n" (map
+        (m: ''
+          monitor = ${m.name},${toString m.width}x${toString m.height}@${toString m.refreshRate},${toString m.x}x${toString m.y},1
+          monitor = ${m.name},addreserved,0,0,42,0
+        '')
+      config.monitors)}
+
       input {
         kb_layout = de
       }
