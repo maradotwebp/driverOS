@@ -20,7 +20,24 @@ with builtins;
     config.monitors)}
   '';
 
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = let
+    monitorSettings = concatStringsSep "\n" (map
+      (m: ''
+        monitor = ${m.name},${toString m.width}x${toString m.height}@${toString m.refreshRate},${toString m.x}x${toString m.y},1
+        monitor = ${m.name},addreserved,0,0,42,0
+      '')
+    config.monitors);
+    rofiDrun = "rofi -show drun -show-icons -display-drun \"\"";
+    rofiPower = pkgs.writeScript "power-menu" ''
+      MENU="$(echo -e "累 Reboot\n襤 Shutdown" | \
+      rofi -dmenu \
+      -i -p "󰍹" )"
+      case "$MENU" in
+          *Reboot) reboot ;;
+          *Shutdown) shutdown -h 0
+      esac
+    '';
+  in {
     enable = true;
     xwayland.hidpi = false;
     extraConfig = with osConfig.theme.colors; ''
@@ -28,12 +45,7 @@ with builtins;
       exec-once = eww open main
       exec-once = ${pkgs.avizo}/bin/avizo-service
 
-      ${concatStringsSep "\n" (map
-        (m: ''
-          monitor = ${m.name},${toString m.width}x${toString m.height}@${toString m.refreshRate},${toString m.x}x${toString m.y},1
-          monitor = ${m.name},addreserved,0,0,42,0
-        '')
-      config.monitors)}
+      ${monitorSettings}
 
       input {
         kb_layout = de
@@ -65,7 +77,8 @@ with builtins;
       $mainMod = ALT
 
       bind = $mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty
-      bind = $mainMod, D, exec, rofi -show drun -show-icons -display-drun ""
+      bind = $mainMod, D, exec, ${rofiDrun}
+      bind = $mainMod SHIFT, E, exec, ${rofiPower}
 
       bind = , XF86AudioRaiseVolume, exec, volumectl -u up
       bind = , XF86AudioLowerVolume, exec, volumectl -u down
