@@ -1,9 +1,13 @@
 { pkgs, config, osConfig, ... }:
 {
-  home.packages = with pkgs; [
-    eww-wayland
+  imports = [
+    ../../modules/home/events.nix
   ];
 
+  # Launch Eww on WM init
+  events."wm-init" = "${pkgs.eww-wayland}/bin/eww open main";
+
+  # Eww config
   xdg.configFile = {
     "eww/eww.yuck".text = ''
       (defvar workspaces "[1, 2, 3, 4, 5, 6, 7, 8, 9]")

@@ -1,9 +1,13 @@
 { pkgs, config, osConfig, ... }:
 {
   imports = [
-    ./nushell.nix
+    ../../modules/home/events.nix
   ];
 
+  # Set as default terminal
+  scripts."default-terminal" = "${pkgs.alacritty}/bin/alacritty";
+
+  # Settings
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     window = {
@@ -13,9 +17,10 @@
     font = {
       normal.family = config.theme.fonts.monospace;
     };
-    shell.program = "${pkgs.nushell}/bin/nu";
+    shell.program = config.scripts."default-shell";
   };
 
+  # Colors
   programs.alacritty.settings.colors = with osConfig.theme.colors;
     let
       bg = zinc."800".hex;
@@ -23,12 +28,12 @@
       themeAt = index: {
         black = bg;
         white = fg;
-        red = red."${index}".hex;
-        green = green."${index}".hex;
-        yellow = yellow."${index}".hex;
-        blue = blue."${index}".hex;
-        cyan = cyan."${index}".hex;
-        magenta = violet."${index}".hex;
+        red = red.${index}.hex;
+        green = green.${index}.hex;
+        yellow = yellow.${index}.hex;
+        blue = blue.${index}.hex;
+        cyan = cyan.${index}.hex;
+        magenta = violet.${index}.hex;
       };
     in {
       primary = { background = bg; foreground = fg; };

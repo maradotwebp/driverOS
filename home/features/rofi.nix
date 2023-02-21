@@ -1,15 +1,25 @@
 { pkgs, config, osConfig, ... }:
 {
   imports = [
-    ./alacritty.nix
-    ./fonts.nix
+    ../../modules/home/events.nix
   ];
 
+  # Add scripts for drun & power
+  scripts."menu-drun" = "rofi -show drun -show-icons -display-drun \"\"";
+  scripts."menu-power" = ''
+    MENU="$(echo -e "累 Reboot\n襤 Shutdown" | rofi -dmenu -i -p "󰍹" )"
+    case "$MENU" in
+        *Reboot) reboot ;;
+        *Shutdown) shutdown -h 0
+    esac
+  '';
+
+  # Config
   programs.rofi.enable = true;
   programs.rofi.package = pkgs.rofi-wayland;
   programs.rofi.font = "${config.theme.fonts.monospace} 11";
   programs.rofi.location = "left";
-  programs.rofi.terminal = "${pkgs.alacritty}/bin/alacritty";
+  programs.rofi.terminal = "${config.scripts."default-terminal"}";
   programs.rofi.theme = with osConfig.theme.colors;
     let
       inherit (config.lib.formats.rasi) mkLiteral;

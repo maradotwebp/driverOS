@@ -7,6 +7,7 @@
     ./git.nix
     ./gtk.nix
     ./hyprland.nix
+    ./hyprpaper.nix
     ./nixsearch.nix
     ./nushell.nix
     ./osd.nix

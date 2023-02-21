@@ -1,5 +1,13 @@
 { pkgs, osConfig, ... }:
 {
+  imports = [
+    ../../modules/home/events.nix
+  ];
+
+  # Launch Nushell when a shell is requested
+  scripts."default-shell" = "${pkgs.nushell}/bin/nu";
+
+  # Config
   programs.nushell.enable = true;
 
   programs.nushell.configFile.text = with osConfig.theme.colors; ''

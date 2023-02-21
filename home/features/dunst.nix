@@ -1,9 +1,5 @@
 { pkgs, config, osConfig, ... }:
 {
-  imports = [
-    ./fonts.nix
-  ];
-
   services.dunst.enable = true;
   services.dunst.iconTheme = {
     name = "Arc";

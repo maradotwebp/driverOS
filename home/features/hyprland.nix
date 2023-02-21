@@ -3,22 +3,10 @@ with builtins;
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
-    ./alacritty.nix
-    ./eww.nix
-    ./osd.nix
-    ./rofi.nix
     ../../modules/home/wallpaper.nix
     ../../modules/home/monitors.nix
+    ../../modules/home/events.nix
   ];
-
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${config.wallpaper}
-    ${concatStringsSep "\n" (map
-      (m: ''
-        wallpaper = ${m.name},${config.wallpaper}
-      '')
-    config.monitors)}
-  '';
 
   wayland.windowManager.hyprland = let
     monitorSettings = concatStringsSep "\n" (map
@@ -27,23 +15,11 @@ with builtins;
         monitor = ${m.name},addreserved,0,0,42,0
       '')
     config.monitors);
-    rofiDrun = "rofi -show drun -show-icons -display-drun \"\"";
-    rofiPower = pkgs.writeScript "power-menu" ''
-      MENU="$(echo -e "累 Reboot\n襤 Shutdown" | \
-      rofi -dmenu \
-      -i -p "󰍹" )"
-      case "$MENU" in
-          *Reboot) reboot ;;
-          *Shutdown) shutdown -h 0
-      esac
-    '';
   in {
     enable = true;
     xwayland.hidpi = false;
     extraConfig = with osConfig.theme.colors; ''
-      exec-once = ${pkgs.hyprpaper}/bin/hyprpaper
-      exec-once = eww open main
-      exec-once = ${pkgs.avizo}/bin/avizo-service
+      exec-once = ${config.events."wm-init"}
 
       ${monitorSettings}
 
@@ -76,16 +52,16 @@ with builtins;
 
       $mainMod = ALT
 
-      bind = $mainMod, Return, exec, ${pkgs.alacritty}/bin/alacritty
-      bind = $mainMod, D, exec, ${rofiDrun}
-      bind = $mainMod SHIFT, E, exec, ${rofiPower}
+      bind = $mainMod, Return, exec, ${config.scripts."default-terminal"}
+      bind = $mainMod, D, exec, ${config.scripts."menu-drun"}
+      bind = $mainMod SHIFT, E, exec, ${config.scripts."menu-power"}
 
-      bind = , XF86AudioRaiseVolume, exec, volumectl -u up
-      bind = , XF86AudioLowerVolume, exec, volumectl -u down
-      bind = , XF86AudioMute, exec, volumectl toggle-mute
-      bind = , XF86AudioMicMute, exec, volumectl -m toggle-mute
-      bind = , XF86MonBrightnessUp, exec, lightctl up
-      bind = , XF86MonBrightnessDown, exec, lightctl down
+      bind = , XF86AudioRaiseVolume, exec, ${config.scripts."volume-up"}
+      bind = , XF86AudioLowerVolume, exec, ${config.scripts."volume-down"}
+      bind = , XF86AudioMute, exec, ${config.scripts."volume-toggle-mute"}
+      bind = , XF86AudioMicMute, exec, ${config.scripts."volume-toggle-mic"}
+      bind = , XF86MonBrightnessUp, exec, ${config.scripts."light-up"}
+      bind = , XF86MonBrightnessDown, exec, ${config.scripts."light-down"}
 
       bind = $mainMod SHIFT, Q, killactive
 
