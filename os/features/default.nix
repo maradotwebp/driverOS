@@ -2,7 +2,8 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ../../modules/os/colors.nix
+    ../../modules/os
+
     ./audio.nix
     ./dconf.nix
     ./greetd.nix

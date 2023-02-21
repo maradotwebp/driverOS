@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ../../modules/home/events.nix
-  ];
-
   # Run on WM init
   events."wm-init" = "${pkgs.avizo}/bin/avizo-service";
 

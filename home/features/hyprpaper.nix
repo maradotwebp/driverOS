@@ -1,9 +1,5 @@
 { pkgs, config, ... }:
 {
-  imports = [
-    ../../modules/home/events.nix
-  ];
-
   # Launch hyprpaper on WM start
   events."wm-init" = "${pkgs.hyprpaper}/bin/hyprpaper";
 

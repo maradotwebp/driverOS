@@ -1,5 +1,7 @@
 {
   imports = [
+    ../../modules/home
+
     ./alacritty.nix
     ./dunst.nix
     ./eww.nix

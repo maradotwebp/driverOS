@@ -1,9 +1,5 @@
 { pkgs, config, osConfig, ... }:
 {
-  imports = [
-    ../../modules/home/events.nix
-  ];
-
   # Launch Eww on WM init
   events."wm-init" = "${pkgs.eww-wayland}/bin/eww open main";
 

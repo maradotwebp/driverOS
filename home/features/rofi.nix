@@ -1,9 +1,5 @@
 { pkgs, config, osConfig, ... }:
 {
-  imports = [
-    ../../modules/home/events.nix
-  ];
-
   # Add scripts for drun & power
   scripts."menu-drun" = "rofi -show drun -show-icons -display-drun \"\"";
   scripts."menu-power" = ''

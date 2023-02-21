@@ -3,9 +3,6 @@ with builtins;
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
-    ../../modules/home/wallpaper.nix
-    ../../modules/home/monitors.nix
-    ../../modules/home/events.nix
   ];
 
   wayland.windowManager.hyprland = let

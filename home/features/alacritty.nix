@@ -1,9 +1,5 @@
 { pkgs, config, osConfig, ... }:
 {
-  imports = [
-    ../../modules/home/events.nix
-  ];
-
   # Set as default terminal
   scripts."default-terminal" = "${pkgs.alacritty}/bin/alacritty";
 
