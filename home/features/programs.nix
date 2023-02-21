@@ -23,6 +23,12 @@
     pfetch
   ];
 
+  # Skip Discord updates
+  home.file.discord-config = {
+    target = ".config/discord/settings.json";
+    text = ''{ "SKIP_HOST_UPDATE": true }'';
+  };
+
   # Better cat
   programs.bat = {
     enable = true;
