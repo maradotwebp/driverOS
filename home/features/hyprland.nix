@@ -80,6 +80,7 @@
       bind = $mainMod SHIFT, down, movewindow, d
 
       bind = $mainMod, F, fullscreen, 1
+      bind = $mainMod SHIFT, space, togglefloating, active
 
       bind = $mainMod, 1, workspace, 1
       bind = $mainMod, 2, workspace, 2
