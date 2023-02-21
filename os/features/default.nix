@@ -4,6 +4,7 @@
     inputs.home-manager.nixosModules.home-manager
     ../../modules/os/colors.nix
     ./audio.nix
+    ./dconf.nix
     ./greetd.nix
     ./intl.nix
     ./network.nix
