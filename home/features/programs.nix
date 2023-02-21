@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     # Development
@@ -7,6 +7,7 @@
     micro
     jetbrains.idea-ultimate
     obsidian
+    spotify
 
     # Files
     feh
@@ -21,6 +22,11 @@
 
     # Others
     pfetch
+  ];
+
+  # Allow Spotify
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
   ];
 
   # Skip Discord updates
