@@ -11,6 +11,7 @@
     ./osd.nix
     ./programs.nix
     ./rofi.nix
+    ./screenshot.nix
     ./starship.nix
     ./syncthing.nix
   ];

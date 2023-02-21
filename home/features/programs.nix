@@ -6,7 +6,6 @@
     firefox
     micro
     jetbrains.idea-ultimate
-    flameshot
     obsidian
 
     # Files
