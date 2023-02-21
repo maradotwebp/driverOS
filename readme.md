@@ -4,8 +4,6 @@ This repository contains the entirety of my operating system, all my used applic
 
 ![screenshot0](screenshot0.png)
 
-![screenshot1](screenshot1.png)
-
 ## Huh?
 
 - [Nix](https://nixos.org/) is a package manager for Linux systems. It's purely functional: It treats packages as immutable, which brings a few advantages like having the ability to install multiple versions of packages at the same time, and atomic upgrades & rollbacks. All package definitions are written in a functional language called Nix.
@@ -37,3 +35,7 @@ All application settings are managed declaratively, except for:
 - IntelliJ IDEA which uses settings sync.
 - Firefox which has account sync.
 - Private SSH Keys, which can't be easily managed with a public git repo.
+
+## More screenshots
+
+![screenshot1](screenshot1.png)
