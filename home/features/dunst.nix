@@ -1,4 +1,4 @@
-{ osConfig, pkgs, ... }:
+{ pkgs, config, osConfig, ... }:
 {
   imports = [
     ./fonts.nix
@@ -20,7 +20,7 @@
       horizontal_padding = 16;
       frame_width = 1;
       idle_threshold = 120;
-      font = "JetBrainsMono Nerd Font 10";
+      font = "${config.theme.fonts.monospace} 10";
       markup = true;
       format = "<b>%s</b> %p\\n%b";
       vertical_alignment = "top";

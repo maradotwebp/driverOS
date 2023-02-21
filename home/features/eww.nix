@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }:
+{ pkgs, config, osConfig, ... }:
 {
   home.packages = with pkgs; [
     eww-wayland
@@ -107,7 +107,7 @@
         padding: 12px 6px;
       }
       .workspace {
-        font: 18px "JetBrainsMono Nerd Font";
+        font: 18px "${config.theme.fonts.monospace}";
         color: ${zinc."400".hex};
       }
       .workspace.current {
@@ -116,7 +116,7 @@
       .card {
         color: ${zinc."900".hex};
         background-color: ${zinc."200".hex};
-        font: 12px "JetBrainsMono Nerd Font";
+        font: 12px "${config.theme.fonts.monospace}";
         border-radius: 3px;
         padding: 4px;
       }

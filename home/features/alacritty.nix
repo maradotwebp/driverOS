@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }:
+{ pkgs, config, osConfig, ... }:
 {
   imports = [
     ./nushell.nix
@@ -11,7 +11,7 @@
       dynamic_padding = true;
     };
     font = {
-      normal.family = "JetBrainsMono Nerd Font";
+      normal.family = config.theme.fonts.monospace;
     };
     shell.program = "${pkgs.nushell}/bin/nu";
   };
