@@ -2,16 +2,13 @@
 rec {
   gtk = {
     enable = true;
-    font = {
-      name = "JetBrainsMono Nerd Font";
-    };
     theme = {
-      name = "Omni";
-      package = pkgs.omni-gtk-theme;
+      name = "Colloid-Dark";
+      package = pkgs.colloid-gtk-theme;
     };
     iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
+      name = "Tela";
+      package = pkgs.tela-icon-theme;
     };
   };
 
