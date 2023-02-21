@@ -8,7 +8,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-  };
+
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
