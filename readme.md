@@ -19,6 +19,7 @@ This repository contains the entirety of my operating system, all my used applic
   - hyprland / eww / rofi / dunst, alacritty / nushell / starship, intellij, gtk / qt, syncthing, greetd, wayland, zathura
 - **User** & **Global** packages managed with the same config
 - **Consistent** declarative config for wallpaper & color theme
+- **Project Templates** with **nix flakes included**
 
 ## Installation
 
@@ -35,6 +36,23 @@ All application settings are managed declaratively, except for:
 - IntelliJ IDEA which uses settings sync.
 - Firefox which has account sync.
 - Private SSH Keys, which can't be easily managed with a public git repo.
+
+### Templates
+
+This repository also provides custom-made flake templates for languages & environments I commonly use.
+
+To use, register `flake.nix` in the nix registry:
+
+```bash
+nix registry add home <path-to-repository>
+```
+
+At which point you can start using the templates:
+
+```bash
+nix flake init -t home#rust
+```
+
 
 ## More screenshots
 

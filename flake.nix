@@ -17,6 +17,7 @@
       forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
       mkHmConfig = import ./lib/mkHmConfig.nix;
     in {
+      templates = import ./templates;
       overlays = import ./overlays { inherit inputs outputs; };
 
       nixosConfigurations = {
