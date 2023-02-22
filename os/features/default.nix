@@ -10,6 +10,7 @@
     ./intl.nix
     ./network.nix
     ./nix.nix
+    ./opengl.nix
     ./ssh.nix
     ./users.nix
     ./wayland.nix
