@@ -24,7 +24,7 @@
       truncation_length = 10;
     };
     nix_shell = {
-      format = "[]($style)[❄️](bg:${zinc."600".hex} fg:${cyan."300".hex})[ ]($style)";
+      format = "[]($style)[ ](bg:${zinc."600".hex} fg:${cyan."400".hex})[ ]($style)";
       style = "bg:none fg:${zinc."600".hex}";
     };
   };
