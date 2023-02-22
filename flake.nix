@@ -26,6 +26,11 @@
           specialArgs = { inherit inputs outputs; };
           modules = [ ./os/skipjack (mkHmConfig ./home/skipjack) ];
         };
+        # PRINCE (Workstation)
+        prince = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./os/prince (mkHmConfig ./home/prince) ];
+        };
       };
     };
 }
