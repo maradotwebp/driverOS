@@ -14,7 +14,8 @@ with builtins;
     config.monitors);
   in {
     enable = true;
-    xwayland.hidpi = false;
+    xwayland.enable = true;
+    xwayland.hidpi = true;
     extraConfig = with osConfig.theme.colors; ''
       exec-once = ${config.events."wm-init"}
 
