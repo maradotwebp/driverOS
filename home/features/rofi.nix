@@ -2,13 +2,13 @@
 {
   # Add scripts for drun & power
   scripts."menu-drun" = "rofi -show drun -show-icons -display-drun \"\"";
-  scripts."menu-power" = ''
+  scripts."menu-power" = "${pkgs.writeScript "power-menu" ''
     MENU="$(echo -e "累 Reboot\n襤 Shutdown" | rofi -dmenu -i -p "󰍹" )"
     case "$MENU" in
         *Reboot) reboot ;;
         *Shutdown) shutdown -h 0
     esac
-  '';
+  ''}";
 
   # Config
   programs.rofi.enable = true;
