@@ -7,8 +7,11 @@
   	flake-utils.lib.eachDefaultSystem (system:
 	  let pkgs = nixpkgs.legacyPackages.${system}; in
 	  {
+	    # SHELL
 	    devShells.default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [ rustc cargo pkg-config ];
+        nativeBuildInputs = with pkgs; [
+          rustc cargo pkg-config
+        ];
       };
 	  }
   );
