@@ -7,4 +7,8 @@
     description = "Rust (cargo)";
     path = ./rust;
   };
+  tauri = {
+    description = "Tauri";
+    path = ./tauri;
+  };
 }
