@@ -5,7 +5,7 @@
     userName = "froehlichA";
     userEmail = "froehlich.alexander@protonmail.com";
     ignores = [
-      ".direnv"
+      ".direnv/" ".envrc"
     ];
   };
 }
