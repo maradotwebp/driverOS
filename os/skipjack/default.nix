@@ -7,6 +7,7 @@
     inputs.nixos-hardware.nixosModules.common-gpu-amd
 
     ../features
+    ../features/optional/bluetooth.nix
     ../features/optional/uefi.nix
     ../features/optional/vpn.nix
   ];
