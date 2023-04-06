@@ -4,11 +4,6 @@
     lfs.enable = true;
     userName = "froehlichA";
     userEmail = "froehlich.alexander@protonmail.com";
-    ignores = [
-      ".direnv/"
-      ".envrc"
-      "flake.lock"
-      "flake.nix"
-    ];
+    ignores = [ ".direnv/" ];
   };
 }
