@@ -8,6 +8,7 @@
     jetbrains.idea-ultimate
     obsidian
     spotify
+    insomnia
 
     # Files
     feh
