@@ -1,8 +1,15 @@
 { inputs, outputs, ... }:
 {
+  # Custom Packages
   additions = final: prev: import ../pkgs {
     pkgs = final;
   };
 
-  xdg-desktop-portal-hyprland = inputs.xdg-desktop-portal-hyprland.overlays.default;
+  # Unstable NixOS Packages
+  unstable = final: prev: {
+    unstable = import inputs.unstable {
+      system = prev.system;
+      config.allowUnfree = true;
+    };
+  };
 }

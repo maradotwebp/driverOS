@@ -10,10 +10,14 @@
     ../features/optional/uefi.nix
   ];
 
+  # Hyprland
+  programs.hyprland.xwayland.hidpi = true;
+  programs.hyprland.nvidiaPatches = true;
+
   # Services
   services.mongodb = {
     enable = true;
-    package = pkgs.mongodb-6_0;
+    package = pkgs.mongodb-4_4;
   };
   services.redis.servers."".enable = true;
   services.postgresql.enable = true;

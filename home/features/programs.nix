@@ -5,8 +5,8 @@
     chromium
     firefox
     micro
-    jetbrains.idea-ultimate
-    obsidian
+    unstable.jetbrains.idea-ultimate
+    unstable.obsidian
     spotify
     insomnia
 
@@ -18,18 +18,13 @@
     vlc
 
     # Communication
-    discord
+    unstable.discord
     slack
 
     # Others
     pfetch
     htop
     killall
-  ];
-
-  # Allow Spotify
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify"
   ];
 
   # Skip Discord updates

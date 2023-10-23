@@ -7,6 +7,7 @@
     ./audio.nix
     ./dconf.nix
     ./greetd.nix
+    ./hyprland.nix
     ./intl.nix
     ./network.nix
     ./nix.nix

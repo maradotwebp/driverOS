@@ -15,7 +15,6 @@ with builtins;
   in {
     enable = true;
     xwayland.enable = true;
-    xwayland.hidpi = true;
     extraConfig = with osConfig.theme.colors; ''
       exec-once = ${config.events."wm-init"}
 
