@@ -1,10 +1,11 @@
 { pkgs, config, osConfig, ... }:
 {
   # Set as default terminal
-  scripts."default-terminal" = "${pkgs.alacritty}/bin/alacritty";
+  scripts."default-terminal" = "${pkgs.unstable.alacritty}/bin/alacritty";
 
   # Settings
   programs.alacritty.enable = true;
+  programs.alacritty.package = pkgs.unstable.alacritty;
   programs.alacritty.settings = {
     window = {
       padding = { x = 4; y = 4; };
