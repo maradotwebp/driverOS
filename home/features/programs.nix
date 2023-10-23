@@ -23,6 +23,8 @@
 
     # Others
     pfetch
+    htop
+    killall
   ];
 
   # Allow Spotify
