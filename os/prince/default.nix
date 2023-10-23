@@ -13,7 +13,7 @@
   # Services
   services.mongodb = {
     enable = true;
-    package = pkgs.mongodb-4_2;
+    package = pkgs.mongodb-6_0;
   };
   services.redis.servers."".enable = true;
   services.postgresql.enable = true;
